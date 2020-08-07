@@ -7,7 +7,7 @@ const jq = require( 'node-jq' );
  * Internal dependencies
  */
 const debug = require( '../../debug' );
-const { mapLabelsToAssignee } = require( '../../map-labels-to-assignee' );
+const mapLabelsToAssignee = require( '../../map-labels-to-assignee' );
 
 /**
  * Assigns issues based on labels applied.
