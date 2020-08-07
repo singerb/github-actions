@@ -15,18 +15,14 @@ const debug = require( '../../debug' );
  * @param {GitHub}                    octokit Initialized Octokit REST client.
  */
 async function assignIssues( payload, octokit ) {
-	let foundLabels;
-	jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'json' } )
+	jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'json', slurp: true } )
 		.then( ( labels ) => {
-			foundLabels = labels;
 			debug( labels )
 		} )
 		.catch( ( err ) => {
 			debug( err )
 		} )
 
-	debug( 'hi' );
-	debug( foundLabels );
 	// const regex = /(?:close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved):? +(?:\#{1}|https?:\/\/github\.com\/automattic\/jetpack\/issues\/)(\d+)/gi;
 	//
 	// let match;
