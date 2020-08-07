@@ -10,7 +10,7 @@ function mapLabelsToAssignee( labels ) {
 	}
 
 	let assignee = '';
-	for ( const labels in labelMap ) {
+	for ( const assignee in labelMap ) {
 		let checkLabels = labelMap[ assignee ];
 		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
