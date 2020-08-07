@@ -27,6 +27,8 @@ async function assignIssues( payload, octokit ) {
 
 	const assignees = mapLabelsToAssignees( labels );
 	if ( assignees === undefined || assignees.length === 0 ) {
+		debug( 'No assignee found. Nothing to do here.' );
+	} else {
 		debug( `Assignee found! Assigning ${ assignees } to issue ${ issueNumber }...` );
 
 		await octokit.issues.addAssignees( {
@@ -35,8 +37,6 @@ async function assignIssues( payload, octokit ) {
 			issue_number: issueNumber,
 			assignees: assignees,
 		} );
-	} else {
-		debug( 'No assignee found. Nothing to do here.' );
 	}
 }
 

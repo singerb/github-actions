@@ -12,21 +12,18 @@ const labelMap = require( './label-map.json' );
 function mapLabelsToAssignees( labels ) {
 	let assigned = [];
 	for ( const [team, values] of Object.entries( labelMap ) ) {
-		const issueLabels = values.labels,
+		const targetLabels = values.labels,
 			assignees = values.assignees;
-		console.log( team );
-		console.log( labels );
-		console.log( issueLabels );
-		console.log( assignees );
+
+		console.log( `Seeing if we find a match for labels: ${targetLabels}` );
 
 		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
-		if ( assigneeFound( labels, issueLabels ) ) {
+		if ( assigneeFound( labels, targetLabels ) ) {
 			assigned.push( assignees.toString() );
+			console.log( `Assignees ${ assigned } found matching lables: ${ targetLabels }` );
 		}
 	}
-
-	console.log( assigned );
 
 	return assigned;
 }
