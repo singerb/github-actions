@@ -15,7 +15,7 @@ const debug = require( '../../debug' );
  * @param {GitHub}                    octokit Initialized Octokit REST client.
  */
 async function assignIssues( payload, octokit ) {
-	jq.run( '.labels', payload, { input: 'json' } )
+	jq.run( '.labels', JSON.stringify( payload ), { input: 'string' } )
 		.then( ( output ) => {
 			debug( output )
 		} )
