@@ -1,7 +1,7 @@
 /**
  * Maps labels to assignees
  *
- * @param {array} labels Array
+ * @param {object} labels Array
  */
 function mapLabelsToAssignee( labels ) {
 	const labelMap = {

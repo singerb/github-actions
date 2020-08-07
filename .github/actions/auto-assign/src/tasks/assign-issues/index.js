@@ -7,6 +7,7 @@ const jq = require( 'node-jq' );
  * Internal dependencies
  */
 const debug = require( '../../debug' );
+const { mapLabelsToAssignee } = require( '../../map-labels-to-assignee' );
 
 /**
  * Assigns issues based on labels applied.
@@ -18,7 +19,9 @@ async function assignIssues( payload, octokit ) {
 	jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'string' } )
 		.then( ( labels ) => {
 			labels.toString().replace( /"/g, "" );
-			debug( labels.split( '\n' ) )
+			labels.split( '\n' );
+			debug( labels );
+			debug( mapLabelsToAssignee( labels ) );
 		} )
 		.catch( ( err ) => {
 			debug( err )
