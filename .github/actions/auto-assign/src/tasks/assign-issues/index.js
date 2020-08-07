@@ -28,9 +28,18 @@ async function assignIssues( payload, octokit ) {
 	const assignee = mapLabelsToAssignee( labels );
 	if ( '' !== assignee ) {
 		debug( `Assignee found! Assigning ${ assignee } to issue ${ issueNumber }...` );
+
+		await octokit.issues.addAssignees( {
+			owner: payload.repository.owner.login,
+			repo: payload.repository.name,
+			issue_number: issueNumber,
+			assignees: [ assignee ],
+		} );
 	} else {
 		debug( 'No assignee found. Nothing to do here.' );
 	}
+
+	debug( 'Done!' );
 
 	// jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'string' } )
 	// 	.then( ( labels ) => {
