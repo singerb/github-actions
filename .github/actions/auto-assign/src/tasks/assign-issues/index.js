@@ -12,9 +12,10 @@ const mapLabelsToAssignee = require( '../../map-labels-to-assignee' );
  */
 async function assignIssues( payload, octokit ) {
 	const payloadLabels = payload.issue.labels;
+	debug( payloadLabels );
 	let labels = [];
 	for ( const labelKey in payloadLabels ) {
-		if ( 'name' === labelKey ) {
+		if ( 'name' === labelKey && payloadLabels.hasOwnProperty( labelKey ) ) {
 			labels.push( payloadLabels[ labelKey ] );
 		}
 	}
