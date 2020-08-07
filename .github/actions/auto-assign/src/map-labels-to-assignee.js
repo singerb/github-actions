@@ -1,7 +1,7 @@
 /**
  * Internal Dependencies
  */
-import * as labelMap from './label-map.json';
+const labelMap = require( './label-map.json' );
 
 /**
  * Maps labels to assignees
