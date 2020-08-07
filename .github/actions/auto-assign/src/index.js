@@ -13,7 +13,7 @@ const debug = require( './debug' );
 const automations = [
 	{
 		event: 'issues',
-		action: [ 'opened', 'synchronize', 'edited' ],
+		action: [ 'opened', 'synchronize', 'edited', 'labeled', 'unlabeled' ],
 		task: assignIssues,
 	},
 ];
