@@ -10,19 +10,19 @@ const labelMap = require( './label-map.json' );
  * @return {array} array of assignees, or empty array if none
  */
 function mapLabelsToAssignees( labels ) {
-	let assignees = [];
+	let assigned = [];
 	for ( const [team, values] of Object.entries( labelMap ) ) {
 		const issueLabels = values.labels,
 			assignees = values.assignees;
 
-		let assigneesFound = ( arr, target ) => target.every( v => arr.includes( v ) );
+		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
-		if ( assigneesFound( labels, issueLabels ) ) {
-			return assignees;
+		if ( assigneeFound( labels, issueLabels ) ) {
+			assigned.push( assignees.toString() );
 		}
 	}
 
-	return assignees;
+	return assigned;
 }
 
 module.exports = mapLabelsToAssignees;
