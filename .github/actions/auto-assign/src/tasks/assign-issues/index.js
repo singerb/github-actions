@@ -17,7 +17,7 @@ const debug = require( '../../debug' );
 async function assignIssues( payload, octokit ) {
 	jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'json' } )
 		.then( ( labels ) => {
-			console.log( labels );
+			debug( labels.split( '\n' ) )
 		} )
 		.catch( ( err ) => {
 			debug( err )
