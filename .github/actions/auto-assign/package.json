@@ -11,8 +11,7 @@
   "main": "index.js",
   "dependencies": {
     "@actions/core": "1.2.4",
-    "@actions/github": "4.0.0",
-    "node-jq": "^1.11.1"
+    "@actions/github": "4.0.0"
   },
   "private": true
 }
