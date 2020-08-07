@@ -1,7 +1,7 @@
 /**
  * Maps labels to assignees
  *
- * @param {object} labels Array
+ * @param {array} labels Array
  */
 function mapLabelsToAssignee( labels ) {
 	const labelMap = {
@@ -9,14 +9,17 @@ function mapLabelsToAssignee( labels ) {
 		'someone': ['bug', 'duplicate']
 	}
 
-	Object.keys( labelMap ).forEach( assignee => {
+	let assignee = '';
+	for ( const labels in labelMap ) {
 		let checkLabels = labelMap[ assignee ];
 		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
 		if ( assigneeFound( labels, checkLabels ) ) {
 			return assignee;
 		}
-	} );
+	}
+	
+	return assignee;
 }
 
 module.exports = mapLabelsToAssignee;
