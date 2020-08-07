@@ -1,7 +1,7 @@
 /**
  * Maps labels to assignees
  *
- * @param {object} labels object
+ * @param {array} labels Array
  */
 function mapLabelsToAssignee( labels ) {
 	const labelMap = {
@@ -18,6 +18,5 @@ function mapLabelsToAssignee( labels ) {
 		}
 	} );
 }
-
 
 module.exports = mapLabelsToAssignee;
