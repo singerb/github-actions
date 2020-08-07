@@ -1,7 +1,7 @@
 /**
  * Internal Dependencies
  */
-import labelMap from './label-map.json';
+import * as labelMap from './label-map.json';
 
 /**
  * Maps labels to assignees
