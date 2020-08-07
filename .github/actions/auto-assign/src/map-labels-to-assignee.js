@@ -14,6 +14,10 @@ function mapLabelsToAssignees( labels ) {
 	for ( const [team, values] of Object.entries( labelMap ) ) {
 		const issueLabels = values.labels,
 			assignees = values.assignees;
+		console.log( team );
+		console.log( labels );
+		console.log( issueLabels );
+		console.log( assignees );
 
 		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
@@ -21,6 +25,8 @@ function mapLabelsToAssignees( labels ) {
 			assigned.push( assignees.toString() );
 		}
 	}
+
+	console.log( assigned );
 
 	return assigned;
 }
