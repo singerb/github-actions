@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-const jq = require( 'node-jq' );
+const jq = require( '../../../../node_modules/node-jq' );
 
 /**
  * Internal dependencies
