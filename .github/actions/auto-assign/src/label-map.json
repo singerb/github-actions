@@ -10,7 +10,7 @@
   },
   "someoneelse": {
     "assignees": [
-      "dereksmart"
+      "someoneelse"
     ],
     "labels": [
       "bug",
