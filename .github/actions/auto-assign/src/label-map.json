@@ -1,4 +1,20 @@
 {
-  "someone": ["[Focus] Jetpack Core", "[Status] Needs Dev Triage"],
-  "dereksmart": ["bug", "duplicate"]
+  "jetpackcrew": {
+    "assignees": [
+      "dereksmart"
+    ],
+    "labels": [
+      "bug",
+      "documentation"
+    ]
+  },
+  "someoneelse": {
+    "assignees": [
+      "dereksmart"
+    ],
+    "labels": [
+      "bug",
+      "documentation"
+    ]
+  }
 }

@@ -2,7 +2,7 @@
  * Internal dependencies
  */
 const debug = require( '../../debug' );
-const mapLabelsToAssignee = require( '../../map-labels-to-assignee' );
+const mapLabelsToAssignees = require( '../../map-labels-to-assignee' );
 
 /**
  * Assigns issues based on labels applied.
@@ -25,15 +25,15 @@ async function assignIssues( payload, octokit ) {
 
 	debug( 'Looking for assignee that matches labels...' );
 
-	const assignee = mapLabelsToAssignee( labels );
-	if ( '' !== assignee ) {
-		debug( `Assignee found! Assigning ${ assignee } to issue ${ issueNumber }...` );
+	const assignees = mapLabelsToAssignees( labels );
+	if ( assignees === undefined || assignees.length === 0 ) {
+		debug( `Assignee found! Assigning ${ assignees } to issue ${ issueNumber }...` );
 
 		await octokit.issues.addAssignees( {
 			owner: payload.repository.owner.login,
 			repo: payload.repository.name,
 			issue_number: issueNumber,
-			assignees: [ assignee ],
+			assignees: assignees,
 		} );
 	} else {
 		debug( 'No assignee found. Nothing to do here.' );
