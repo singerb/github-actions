@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 const debug = require( '../../debug' );
+const jq = require( 'node-jq' );
 
 /**
  * Assigns issues based on labels applied.
@@ -10,6 +11,8 @@ const debug = require( '../../debug' );
  * @param {GitHub}                    octokit Initialized Octokit REST client.
  */
 async function assignIssues( payload, octokit ) {
+	jq.run( '.labels[]', payload, {} )
+		.then( debug )
 	debug( JSON.stringify( payload ) );
 	// const regex = /(?:close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved):? +(?:\#{1}|https?:\/\/github\.com\/automattic\/jetpack\/issues\/)(\d+)/gi;
 	//
