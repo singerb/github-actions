@@ -11,15 +11,26 @@ const mapLabelsToAssignee = require( '../../map-labels-to-assignee' );
  * @param {GitHub}                    octokit Initialized Octokit REST client.
  */
 async function assignIssues( payload, octokit ) {
-	const payloadLabels = payload.issue.labels;
+	const payloadLabels = payload.issue.labels,
+		issueNumber = payload.issue.number;
+
 	debug( JSON.stringify( payloadLabels ) );
+
 	let labels = [];
 	payloadLabels.forEach( ( labelKeys ) => {
-		debug( labelKeys.toString() );
 		labels.push( labelKeys.name );
 	} )
-	
-	debug( labels.toString() );
+
+	debug( 'Found labels: ' + labels.toString() );
+
+	debug( 'Looking for assignee that matches labels...' );
+
+	const assignee = mapLabelsToAssignee( labels );
+	if ( '' !== assignee ) {
+		debug( `Assignee found! Assigning ${ assignee } to issue ${ issueNumber }...` );
+	} else {
+		debug( 'No assignee found. Nothing to do here.' );
+	}
 
 	// jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'string' } )
 	// 	.then( ( labels ) => {
