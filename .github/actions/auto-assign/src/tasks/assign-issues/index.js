@@ -14,13 +14,11 @@ async function assignIssues( payload, octokit ) {
 	const payloadLabels = payload.issue.labels;
 	debug( JSON.stringify( payloadLabels ) );
 	let labels = [];
-	for ( const labelKey in payloadLabels ) {
-		debug( labelKey );
-		if ( 'name' === labelKey && payloadLabels.hasOwnProperty( labelKey ) ) {
-			labels.push( payloadLabels.name );
-		}
-	}
-
+	payloadLabels.forEach( ( labelKeys ) => {
+		debug( labelKeys.toString() );
+		labels.push( labelKeys.name );
+	} )
+	
 	debug( labels.toString() );
 
 	// jq.run( '.issue.labels[].name', JSON.stringify( payload ), { input: 'string', output: 'string' } )
