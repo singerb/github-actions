@@ -1,14 +1,14 @@
 /**
+ * Internal Dependencies
+ */
+import labelMap from './label-map.json';
+
+/**
  * Maps labels to assignees
  *
  * @param {array} labels Array
  */
 function mapLabelsToAssignee( labels ) {
-	const labelMap = {
-		'dereksmart': ['bug', 'documentation'],
-		'someone': ['bug', 'duplicate']
-	}
-
 	let assignee = '';
 	for ( const assignee in labelMap ) {
 		let checkLabels = labelMap[ assignee ];
