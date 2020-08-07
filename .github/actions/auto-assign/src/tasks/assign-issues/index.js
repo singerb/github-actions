@@ -1,8 +1,12 @@
 /**
+ * External dependencies
+ */
+const jq = require( 'node-jq' );
+
+/**
  * Internal dependencies
  */
 const debug = require( '../../debug' );
-const jq = require( 'node-jq' );
 
 /**
  * Assigns issues based on labels applied.
