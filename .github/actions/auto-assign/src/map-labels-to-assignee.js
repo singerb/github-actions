@@ -20,9 +20,8 @@ function mapLabelsToAssignees( labels ) {
 		let assigneeFound = ( arr, target ) => target.every( v => arr.includes( v ) );
 
 		if ( assigneeFound( labels, targetLabels ) ) {
-			assigned.push( assignees );
+			assigned.push( assignees.toString() );
 			console.log( `Assignees ${ assigned } found matching lables: ${ targetLabels }` );
-			return assigned;
 		}
 	}
 
