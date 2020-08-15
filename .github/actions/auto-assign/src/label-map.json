@@ -1,7 +1,8 @@
 {
   "jetpackcrew": {
     "assignees": [
-      "dereksmart"
+      "dereksmart",
+      "someoneelse"
     ],
     "labels": [
       "bug",
