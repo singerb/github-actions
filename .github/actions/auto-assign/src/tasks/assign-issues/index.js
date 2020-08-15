@@ -35,7 +35,7 @@ async function assignIssues( payload, octokit ) {
 			owner: payload.repository.owner.login,
 			repo: payload.repository.name,
 			issue_number: issueNumber,
-			assignees: [ assignees.split( "," ) ],
+			assignees: assignees.toString().split( "," ),
 		} );
 	}
 }
