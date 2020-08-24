@@ -1,21 +1,10 @@
 {
   "jetpackcrew": {
     "assignees": [
-      "singerb",
-      "someoneelse"
+      "singerb"
     ],
     "labels": [
-      "bug",
-      "documentation"
-    ]
-  },
-  "someoneelse": {
-    "assignees": [
-      "someoneelse"
-    ],
-    "labels": [
-      "bug",
-      "documentation"
+      "bug"
     ]
   }
 }
