@@ -22,15 +22,14 @@ async function assignIssues( payload, octokit ) {
 	} )
 
 	debug( 'Found labels: ' + labels.toString() );
-	debug( 'Current payload: ' + JSON.stringify( payload ) );
-	debug( 'Current assignees: ' + JSON.stringify( payload.assignees ) );
+	debug( 'Current assignees: ' + JSON.stringify( payload.issue.assignees ) );
 
 	debug( 'Looking for assignee that matches labels...' );
 
 	const assignees = mapLabelsToAssignees( labels );
 	if ( assignees === undefined || assignees.length === 0 ) {
 		debug( 'No assignee found. Nothing to do here.' );
-	} else if ( payload.assignees && payload.assignees.length > 0 ) {
+	} else if ( payload.issue.assignees && payload.issue.assignees.length > 0 ) {
 		debug( 'Issue already assigned. Nothing to do here.' );
 	} else {
 		debug( `Assignee found! Assigning ${ assignees } to issue ${ issueNumber }...` );
