@@ -22,6 +22,7 @@ async function assignIssues( payload, octokit ) {
 	} )
 
 	debug( 'Found labels: ' + labels.toString() );
+	debug( 'Current payload: ' + JSON.stringify( payload ) );
 	debug( 'Current assignees: ' + JSON.stringify( payload.assignees ) );
 
 	debug( 'Looking for assignee that matches labels...' );
